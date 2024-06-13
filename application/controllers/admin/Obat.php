@@ -7,7 +7,8 @@ class Obat extends CI_Controller
         parent::__construct();
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->model('obat_model');
         $obats = $this->obat_model->get_obat();
 
@@ -18,7 +19,8 @@ class Obat extends CI_Controller
         $this->slice->view('pages.admin.obat.index', ['data' => $data]);
     }
 
-    public function create() {
+    public function create()
+    {
         if ($this->input->method() === 'post') {
             $this->load->helper('form');
             $this->load->library('form_validation');
@@ -31,9 +33,9 @@ class Obat extends CI_Controller
             if ($this->form_validation->run() === FALSE) {
                 $this->load->model('kategori_obat_model');
                 $kategori_obats = $this->kategori_obat_model->get_kategori_obat();
-    
-                $data = [ 'kategori_obats' => $kategori_obats ];
-    
+
+                $data = ['kategori_obats' => $kategori_obats];
+
                 $this->slice->view('pages.admin.obat.create', ['data' => $data]);
             } else {
                 $this->load->model('obat_model');
@@ -52,13 +54,14 @@ class Obat extends CI_Controller
             $this->load->model('kategori_obat_model');
             $kategori_obats = $this->kategori_obat_model->get_kategori_obat();
 
-            $data = [ 'kategori_obats' => $kategori_obats ];
+            $data = ['kategori_obats' => $kategori_obats];
 
             $this->slice->view('pages.admin.obat.create', ['data' => $data]);
         }
     }
 
-    public function edit(string $id) {
+    public function edit(string $id)
+    {
         if ($this->input->method() === 'post') {
             $this->load->helper('form');
             $this->load->library('form_validation');
@@ -72,7 +75,7 @@ class Obat extends CI_Controller
                 $this->slice->view('pages.admin.obat.edit');
             } else {
                 $this->load->model('obat_model');
-                
+
                 $merk = $this->input->post('merk');
                 $stok = $this->input->post('stok');
                 $harga = $this->input->post('harga');
@@ -95,7 +98,8 @@ class Obat extends CI_Controller
         }
     }
 
-    public function delete(string $id) {
+    public function delete(string $id)
+    {
         $this->load->model('obat_model');
         $this->obat_model->destroy($id);
 
