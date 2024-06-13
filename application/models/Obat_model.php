@@ -1,6 +1,6 @@
-<?php 
+<?php
 
-class Obat_model extends CI_Model 
+class Obat_model extends CI_Model
 {
     public $id;
     public $merk;

@@ -54,6 +54,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="<?= base_url('index.php/admin/kategori_obat') ?>">Kategori Obat</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<?= base_url('index.php/admin/resep') ?>">Resep</a>
+            </li>
         </ul>
     </div>
     <div class="navbar-end">

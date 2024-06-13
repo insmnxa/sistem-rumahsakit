@@ -4,13 +4,19 @@ class Kategori_obat_model extends CI_Model
 {
     public $id;
     public $nama;
-    
+
     private $_table = 'kategori_obat';
 
-    public function get_kategori_obat(string $id = '')
+    public function get_kategori_obat(string $id = '', $nama = '')
     {
         if (!empty($id)) {
             $query = $this->db->get_where($this->_table, ['id' => $id]);
+            $kategori_obat = $query->row();
+            return $kategori_obat;
+        }
+
+        if (!empty($nama)) {
+            $query = $this->db->get_where($this->_table, ['nama' => $nama]);
             $kategori_obat = $query->row();
             return $kategori_obat;
         }
