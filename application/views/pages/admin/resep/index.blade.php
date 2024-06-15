@@ -1,10 +1,10 @@
 @extends('templates.layout')
 
 @section('content')
-    <h1 class="text-4xl font-bold mb-4">Pasien Manajemen</h1>
+    <h1 class="text-4xl font-bold mb-4">Antrean Pasien</h1>
 
     <div class="overflow-x-auto">
-        <table class="table">
+        <table class="table table-xs">
             <!-- head -->
             <thead>
                 <tr>
