@@ -1,39 +1,39 @@
 @extends('templates.layout')
 
 @section('content')
-<style>
-    /* Style for the dropdown container */
-    .dropdown-container {
-      position: relative;
-      display: inline-block;
-    }
-  
-    /* Style for the dropdown */
-    .dropdown-kategori {
-      position: absolute;
-      top: 100%; /* Position it below the input */
-      left: 0;
-      background-color: #f9f9f9;
-      min-width: 100px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 8px 0;
-      z-index: 1; /* Ensure it's above other elements */
-    }
-  
-    /* Style for dropdown items */
-    .dropdown-item {
-      padding: 8px 16px;
-      display: block;
-      text-decoration: none;
-      color: #333;
-      cursor: pointer;
-    }
-  
-    /* Style for dropdown items on hover */
-    .dropdown-item:hover {
-      background-color: #ddd;
-    }
+    <style>
+        /* Style for the dropdown container */
+        .dropdown-container {
+            position: relative;
+            display: inline-block;
+        }
+    
+        /* Style for the dropdown */
+        .dropdown-kategori {
+            position: absolute;
+            top: 100%; /* Position it below the input */
+            left: 0;
+            background-color: #f9f9f9;
+            min-width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 0;
+            z-index: 1; /* Ensure it's above other elements */
+        }
+    
+        /* Style for dropdown items */
+        .dropdown-item {
+            padding: 8px 16px;
+            display: block;
+            text-decoration: none;
+            color: #333;
+            cursor: pointer;
+        }
+    
+        /* Style for dropdown items on hover */
+        .dropdown-item:hover {
+            background-color: #ddd;
+        }
     </style>
 
     <h1 class="text-4xl font-bold mb-4">Obat Create</h1>
@@ -101,7 +101,7 @@
                                 let htmlElement = '';
 
                                 $arr.forEach(a => {
-                                    htmlElement +=  "<button type='button'><div class='dropdown-item text-sm'>" + a.nama + "</div></button>";
+                                    htmlElement +=  "<button type='button'><div class='dropdown-item text-sm text-left'>" + a.nama + "</div></button>";
                                 });
 
                                 console.log(htmlElement);

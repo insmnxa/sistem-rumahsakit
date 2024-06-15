@@ -15,11 +15,11 @@ class Auth extends CI_Controller
 			$username = $this->input->post('username');
 			$password = $this->input->post('password');
 
-			if (!$this->auth_model->login($username, $password)) {
+			if ($this->auth_model->login($username, $password)) {
+				redirect(base_url('index.php/admin/dashboard'));
+			} else {
 				$this->session->set_flashdata('login_error', 'Username atau password salah!');
 				redirect(base_url('index.php/auth/login'));
-			} else {
-				redirect(base_url('index.php/admin/dashboard'));
 			}
 		}
 
@@ -46,7 +46,7 @@ class Auth extends CI_Controller
 		}
 	}
 
-	public function logout() 
+	public function logout()
 	{
 		$this->load->model('auth_model');
 		$this->auth_model->logout();

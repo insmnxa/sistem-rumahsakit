@@ -7,7 +7,8 @@ class Spesialisasi extends CI_Controller
         parent::__construct();
     }
 
-    public function index() {
+    public function index()
+    {
         $this->load->model('spesialisasi_model');
         $spesialisasi = $this->spesialisasi_model->get_spesialisasi();
 
@@ -18,7 +19,8 @@ class Spesialisasi extends CI_Controller
         $this->slice->view('pages.admin.spesialisasi.index', ['data' => $data]);
     }
 
-    public function create() {
+    public function create()
+    {
         if ($this->input->method() === 'post') {
             $this->load->helper('form');
             $this->load->library('form_validation');
@@ -42,7 +44,8 @@ class Spesialisasi extends CI_Controller
         }
     }
 
-    public function edit(string $id) {
+    public function edit(string $id)
+    {
         if ($this->input->method() === 'post') {
             $this->load->helper('form');
             $this->load->library('form_validation');
@@ -73,9 +76,27 @@ class Spesialisasi extends CI_Controller
         }
     }
 
-    public function delete(string $id) {
+    public function delete(string $id)
+    {
         $this->load->model('spesialisasi_model');
         $this->spesialisasi_model->destroy($id);
         redirect(base_url('index.php/admin/spesialisasi'));
+    }
+
+    public function fetch()
+    {
+        $this->load->model('spesialisasi_model');
+        $spesialisasi = $this->spesialisasi_model->get_spesialisasi();
+
+        $searchTerm = $this->input->post('search');
+
+        $matches = [];
+        foreach ($spesialisasi as $s) {
+            if (stripos($s->nama, $searchTerm) === 0) {
+                $matches[] = $s;
+            }
+        }
+
+        echo json_encode($matches);
     }
 }

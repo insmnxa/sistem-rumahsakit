@@ -9,7 +9,7 @@ class Auth_model extends CI_Model
 	public $is_active;
 
 	private $_table = 'users';
-	private $_session_key = 'user_id';
+	const SESSION_KEY = 'user_id';
 
 	public function login(string $username, $password)
 	{
@@ -22,7 +22,7 @@ class Auth_model extends CI_Model
 		}
 
 		// 2. Check if user is active
-		if ($user->is_active === 0) {
+		if ($user->is_active == 0) {
 			return FALSE;
 		}
 
@@ -32,9 +32,9 @@ class Auth_model extends CI_Model
 		}
 
 		// 4. If username and password correct then set session
-		$this->session->set_userdata($this->_session_key, $user->id);
+		$this->session->set_userdata(self::SESSION_KEY, $user->id);
 
-		return $this->session->has_userdata($this->_session_key);
+		return $this->session->has_userdata(self::SESSION_KEY);
 	}
 
 	public function register(string $nama, $username, $password)
@@ -52,7 +52,7 @@ class Auth_model extends CI_Model
 
 	public function logout()
 	{
-		$this->session->unset_userdata($this->_session_key);
-		return !$this->session->has_userdata($this->_session_key);
+		$this->session->unset_userdata(self::SESSION_KEY);
+		return !$this->session->has_userdata(self::SESSION_KEY);
 	}
 }

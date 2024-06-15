@@ -7,7 +7,7 @@
         onclick="location.href='<?= base_url('index.php/admin/pasien/create') ?>'">Pasien Baru</button>
 
     <div class="overflow-x-auto">
-        <table class="table">
+        <table class="table table-xs">
             <!-- head -->
             <thead>
                 <tr>
@@ -30,8 +30,8 @@
                         <td>{{ $p->tgl_lahir }}</td>
                         <td>{{ $p->no_ktp }}</td>
                         <td>{{ $p->no_telp }}</td>
-                        <td>{{ $p->id_dokter }}</td>
-                        <td>{{ $p->id_user }}</td>
+                        <td>{{ $p->dn }}</td>
+                        <td>{{ $p->un }}</td>
                         <td class="flex gap-1">
                             <a href="<?= base_url('index.php/admin/pasien/edit/' . $p->id) ?>" class="btn btn-sm btn-warning">
                                 edit

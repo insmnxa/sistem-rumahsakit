@@ -7,10 +7,16 @@ class Spesialisasi_model extends CI_Model
 
     private $_table = 'spesialisasi';
 
-    public function get_spesialisasi(string $id = '')
+    public function get_spesialisasi(string $id = '', $nama = '')
     {
         if (!empty($id)) {
             $query = $this->db->get_where($this->_table, ['id' => $id]);
+            $spesialisasi = $query->row();
+            return $spesialisasi;
+        }
+
+        if (!empty($nama)) {
+            $query = $this->db->get_where($this->_table, ['nama' => $nama]);
             $spesialisasi = $query->row();
             return $spesialisasi;
         }
@@ -20,7 +26,7 @@ class Spesialisasi_model extends CI_Model
         return $spesialisasis;
     }
 
-    public function store($nama) 
+    public function store($nama)
     {
         $this->id = uniqid('SPL-');
         $this->nama = $nama;

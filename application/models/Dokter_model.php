@@ -11,10 +11,16 @@ class Dokter_model extends CI_Model
 
     private $_table = 'dokter';
 
-    public function get_dokter(string $id = '') 
+    public function get_dokter(string $id = '', $nama = '')
     {
         if ($id) {
             $query = $this->db->get_where($this->_table, ['id' => $id]);
+            $dokter = $query->row();
+            return $dokter;
+        }
+
+        if ($nama) {
+            $query  = $this->db->get_where($this->_table, ['nama' => $nama]);
             $dokter = $query->row();
             return $dokter;
         }

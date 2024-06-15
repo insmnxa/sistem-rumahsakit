@@ -7,7 +7,7 @@
         Baru</button>
 
     <div class="overflow-x-auto">
-        <table class="table">
+        <table class="table table-xs">
             <!-- head -->
             <thead>
                 <tr>
